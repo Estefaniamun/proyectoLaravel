@@ -16,13 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 Route::get('/almacen', function(){
     return view('almacenes.index');
 })->middleware(['auth', 'verified'])->name('almacen');
 Route::get('/producto', function(){
     return view('productos.index');
 })->middleware(['auth', 'verified'])->name('producto');
+
+Route::get('/usuario', function(){
+    return view('usuarios.index');
+})->middleware(['auth', 'verified'])->name('usuario');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
