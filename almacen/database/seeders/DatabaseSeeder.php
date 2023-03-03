@@ -49,6 +49,17 @@ class DatabaseSeeder extends Seeder
                 'user_id'=>rand(1,2)]
             ]);
             
+            DB::table('compra')->insert([
+                ['id'=>1,
+                 'id_producto'=>rand(1,2),
+                 'id_usuario'=>rand(1,2),
+                 'precio'=>20],
+                 ['id'=>2,
+                 'id_producto'=>rand(1,2),
+                 'id_usuario'=>rand(1,2),
+                 'precio'=>15]
+            ]);
+
         Almacen::factory(3)->create();
     }
 }

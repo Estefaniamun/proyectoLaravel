@@ -18,8 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/almacen', function(){
-    return view('almacen');
-})->name('almacen');
+    return view('almacenes.index');
+})->middleware(['auth', 'verified'])->name('almacen');
+Route::get('/producto', function(){
+    return view('productos.index');
+})->middleware(['auth', 'verified'])->name('producto');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
