@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class UsuarioController extends Controller
 {
     public function index(){
-        $user = User::find(Auth::id());
-        return view('usuario.index')->with('productos', $user->productos()->get());
+       
+        return view('usuarios.index');
     }
 
     

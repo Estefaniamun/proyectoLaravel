@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AlmacenController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,14 +26,10 @@ Route::get('/almacen', [AlmacenController::class, 'index']
 
 Route::get('/almacen/create', [AlmacenController::class, 'create'])->middleware(['auth', 'verified'])->name('almacen.create');
 
-Route::get('/producto', function(){
-    return view('productos.index');
-})->middleware(['auth', 'verified'])->name('producto');
-
-Route::get('/usuario', function(){
-    return view('usuarios.index');
-})->middleware(['auth', 'verified'])->name('usuario');
-
+Route::get('/producto', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('producto.index');
+Route::get('/producto/create', [ProductoController::class, 'create'])->middleware(['auth', 'verified'])->name('producto.create');
+Route::get('/usuario', [UsuarioController::class, 'index'])->middleware(['auth', 'verified'])->name('usuario.index');
+Route::get('/usuario/create', [UsuarioController::class, 'create'])->middleware(['auth', 'verified'])->name('usuario.create');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

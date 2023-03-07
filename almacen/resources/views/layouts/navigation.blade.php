@@ -50,10 +50,10 @@
                                 <div id="dropdownNavbar2" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="{{route('producto')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Listar</a>
+                                            <a href="{{route('producto.index')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Listar</a>
                                           </li>
                                       <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Crear</a>
+                                        <a href="{{route('producto.create')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Crear</a>
                                       </li>
                                       <li>
                                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Editar</a>
@@ -71,10 +71,10 @@
                                 <div id="dropdownNavbar3" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="{{route('usuario')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Listar</a>
+                                            <a href="{{route('usuario.index')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Listar</a>
                                           </li>
                                       <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Crear</a>
+                                        <a href="{{route('usuario.create')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Crear</a>
                                       </li>
                                       <li>
                                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Editar</a>
@@ -156,10 +156,10 @@
             <x-responsive-nav-link :href="route('almacen.index')" :active="request()->routeIs('almacen.index')">
                 {{ __('Almacen') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('producto')" :active="request()->routeIs('producto')">
+            <x-responsive-nav-link :href="route('producto.index')" :active="request()->routeIs('producto.index')">
                 {{ __('Producto') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('usuario')" :active="request()->routeIs('usuario')">
+            <x-responsive-nav-link :href="route('usuario.index')" :active="request()->routeIs('usuario.index')">
                 {{ __('Usuario') }}
             </x-responsive-nav-link>
         </div>

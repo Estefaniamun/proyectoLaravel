@@ -15,4 +15,14 @@ class AlmacenController extends Controller
     public function create(){
         return view('almacenes.create');
     }
+
+
+    public function edit($id){
+
+    }
+
+
+    public function destroy($id){
+        
+    }
 }
