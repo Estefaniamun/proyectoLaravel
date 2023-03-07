@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/almacen', function(){
-    return view('almacenes.index');
-})->middleware(['auth', 'verified'])->name('almacen');
+
+Route::get('/almacen', [AlmacenController::class, 'index']
+)->middleware(['auth', 'verified'])->name('almacen.index');
+
+Route::get('/almacen/create', [AlmacenController::class, 'create'])->middleware(['auth', 'verified'])->name('almacen.create');
+
 Route::get('/producto', function(){
     return view('productos.index');
 })->middleware(['auth', 'verified'])->name('producto');

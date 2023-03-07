@@ -10,12 +10,12 @@ class UsuarioController extends Controller
 {
     public function index(){
         $user = User::find(Auth::id());
-        return view('producto.index')->with('productos', $user->productos()->get());
+        return view('usuario.index')->with('productos', $user->productos()->get());
     }
 
     
     public function create(){
-        return view('productos.create');
+        return view('usuarios.create');
     }
 
 
