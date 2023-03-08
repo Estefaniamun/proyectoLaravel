@@ -60,6 +60,6 @@ class DatabaseSeeder extends Seeder
                  'precio'=>15]
             ]);
 
-        Almacen::factory(3)->create();
+       
     }
 }

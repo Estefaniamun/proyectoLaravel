@@ -22,7 +22,7 @@ class Producto extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function almacen(){
-        return $this->hasMany(Almacen::class);
+    public function users(){
+        return $this->hasMany(User::class);
     }
 }

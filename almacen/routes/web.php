@@ -21,10 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/almacen', [AlmacenController::class, 'index']
-)->middleware(['auth', 'verified'])->name('almacen.index');
 
-Route::get('/almacen/create', [AlmacenController::class, 'create'])->middleware(['auth', 'verified'])->name('almacen.create');
+
 
 Route::get('/producto', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('producto.index');
 Route::get('/producto/create', [ProductoController::class, 'create'])->middleware(['auth', 'verified'])->name('producto.create');
