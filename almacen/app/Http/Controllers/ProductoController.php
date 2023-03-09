@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Compra;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,8 +46,8 @@ class ProductoController extends Controller
 
     public function show($id){
         $producto = Producto::find($id);
-        $url = 'storage/img_productos/';
-        return view('producto.show')->with('producto', $producto)->with('url', $url);
+        $compra = Compra::find($id);
+        return view('productos.show')->with('producto', $producto)->with('compra', $compra);
     }
     public function edit($id){
         $producto = Producto::find($id);

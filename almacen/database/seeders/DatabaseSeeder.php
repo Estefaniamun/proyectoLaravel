@@ -50,7 +50,16 @@ class DatabaseSeeder extends Seeder
                 'fecha_caducidad'=>'2025-06-12',
                 'user_id'=>rand(1,2)]
             ]);
-            
-            Compra::factory(3);
+            DB::table('compras')->insert([
+                ['id'=>1,
+                'id_producto'=>rand(1,2),
+                'id_usuario'=>rand(1,2),
+                'precio'=>'30'],
+                ['id'=>2,
+                'id_producto'=>rand(1,2),
+                'id_usuario'=>rand(1,2),
+                'precio'=>'30']
+            ]);
+            Compra::factory(2);
     }
 }

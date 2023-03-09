@@ -18,9 +18,7 @@ class Compra extends Model
         'precio',
     ];
 
-    public function own(){
-        return $this->belongsTo(User::class);
-    }
+    
 
 
     public function producto(){

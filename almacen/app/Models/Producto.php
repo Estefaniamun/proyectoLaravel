@@ -19,8 +19,8 @@ class Producto extends Model
         'user_id'
     ];
 
-    public function own(){
-        return $this->belongsTo(User::class);
+    public function compras(){
+        return $this->belongsToMany(Compra::class, 'producto_id');
     }
 
     public function users(){

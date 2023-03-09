@@ -44,6 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function compras(){
+        return $this->belongsToMany(Compra::class, 'id_usuario');
+    }
     public function productos(){
         return $this->hasMany(Producto::class);
     }
