@@ -14,6 +14,7 @@ class Producto extends Model
         'id',
         'nombre',
         'descripcion',
+        'foto',
         'fecha_caducidad',
         'user_id'
     ];

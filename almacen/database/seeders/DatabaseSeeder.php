@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Almacen;
+use App\Models\Compra;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -40,26 +40,17 @@ class DatabaseSeeder extends Seeder
                 ['id'=>1,
                 'nombre'=>'detergente',
                 'descripcion'=>'Detergente en polvo, para lavadoras de 8kg',
+                'foto'=>'../../public/storage/img_productos/detergente.jpg',
                 'fecha_caducidad'=>'2024-05-12',
                 'user_id'=>rand(1,2)],
                 ['id'=>2,
                 'nombre'=>'Champú de cebolla',
                 'descripcion'=>'Champú de cebolla para el crecimiento del cabello',
+                'foto'=>'../../public/storage/img_productos/champu.jpg',
                 'fecha_caducidad'=>'2025-06-12',
                 'user_id'=>rand(1,2)]
             ]);
             
-            DB::table('compra')->insert([
-                ['id'=>1,
-                 'id_producto'=>rand(1,2),
-                 'id_usuario'=>rand(1,2),
-                 'precio'=>20],
-                 ['id'=>2,
-                 'id_producto'=>rand(1,2),
-                 'id_usuario'=>rand(1,2),
-                 'precio'=>15]
-            ]);
-
-       
+            Compra::factory(3);
     }
 }

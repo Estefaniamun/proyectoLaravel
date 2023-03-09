@@ -26,6 +26,10 @@ Route::get('/', function () {
 
 Route::get('/producto', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('producto.index');
 Route::get('/producto/create', [ProductoController::class, 'create'])->middleware(['auth', 'verified'])->name('producto.create');
+Route::post('/producto/create', [ProductoController::class, 'store'])->middleware(['auth', 'verified'])->name('producto.store');
+Route::get('/producto/show/{producto}', [ProductoController::class, 'show'])->middleware(['auth', 'verified'])->name('producto.show');
+Route::put('/producto/edit', [Producto::class, 'update'])->middleware('auth', 'verified')->name('producto.edit');
+Route::delete('/producto/delete/{producto}', 'ProductoController@destroy')->middleware(['auth', 'verified'])->name('producto.destroy');
 Route::get('/usuario', [UsuarioController::class, 'index'])->middleware(['auth', 'verified'])->name('usuario.index');
 Route::get('/usuario/create', [UsuarioController::class, 'create'])->middleware(['auth', 'verified'])->name('usuario.create');
 Route::get('/dashboard', function () {

@@ -133,9 +133,6 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('almacen.index')" :active="request()->routeIs('almacen.index')">
-                {{ __('Almacen') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('producto.index')" :active="request()->routeIs('producto.index')">
                 {{ __('Producto') }}
             </x-responsive-nav-link>
