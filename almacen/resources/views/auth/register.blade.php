@@ -16,10 +16,11 @@
                 required autofocus autocomplete="apell" />
             <x-input-error :messages="$errors->get('apell')" class="mt-2" />
         </div>
-         <!-- Address -->
-         <div>
+        <!-- Address -->
+        <div>
             <x-input-label for="address" :value="__('Address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="name" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
+                required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
         <!-- Email Address -->
@@ -29,6 +30,7 @@
                 required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        
 
         <!-- Password -->
         <div class="mt-4">

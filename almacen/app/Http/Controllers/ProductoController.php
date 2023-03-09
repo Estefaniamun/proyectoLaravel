@@ -47,7 +47,8 @@ class ProductoController extends Controller
     public function show($id){
         $producto = Producto::find($id);
         $compra = Compra::find($id);
-        return view('productos.show')->with('producto', $producto)->with('compra', $compra);
+        $url = 'storage/img_productos/';
+        return view('productos.show')->with('producto', $producto)->with('url', $url)->with('compra', $compra);
     }
     public function edit($id){
         $producto = Producto::find($id);

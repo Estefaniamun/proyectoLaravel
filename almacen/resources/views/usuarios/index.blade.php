@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Usuarios') }}
+            {{ __('Mis Usuarios') }}
         </h2>
     </x-slot>
 
@@ -32,9 +32,10 @@
                                     <th scope="col" class="px-6 py-3">
                                         Email
                                     </th>
-                                   <th scope="col" class="px-6 py-3">
-                                        
-                                   </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Rol
+                                    </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,21 +54,23 @@
                                         <td class="px-6 py-4">
                                             {{ $usuario->email }}
                                         </td>
-                                        
                                         <td class="px-6 py-4">
-                                            <a href="">
+                                            {{ $usuario->rol }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="{{ route('usuario.show', ['id' => $usuario->id]) }}">
                                                 <button type="button"
                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Detalles</button>
                                             </a>
-                                            <a href="">
+                                            <a href="{{ route('usuario.edit', ['id' => $usuario->id]) }}">
                                                 <button type="button"
                                                     class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Editar</button>
                                             </a>
                                             <button type="button" data-modal-target="popup-modal"
-                                                data-modal-toggle="popup-modal"
+                                                data-modal-toggle="popup-modal{{ $usuario->id }}"
                                                 class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Borrar</button>
 
-                                            <div id="popup-modal" tabindex="-1"
+                                            <div id="popup-modal{{ $usuario->id }}" tabindex="-1"
                                                 class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                                                 <div class="relative w-full h-full max-w-md md:h-auto">
                                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -94,20 +97,24 @@
                                                             </svg>
                                                             <h3
                                                                 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                                                ¿Estas seguro de que deseas eliminar este coche?</h3>
+                                                                ¿Estas seguro de que deseas eliminar este producto?</h3>
                                                             <form
-                                                                action=""
+                                                                action="{{ route('usuario.destroy', ['usuario' => $usuario->id]) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button data-modal-hide="popup-modal" type="submit"
+                                                                <button
+                                                                    data-modal-hide="popup-modal{{ $usuario->id }}"
+                                                                    type="submit"
                                                                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                                    Si, quiero borrarlo
+                                                                   Si, quiero borrarlo
                                                                 </button>
                                                             </form>
-                                                            <button data-modal-hide="popup-modal" type="submit"
-                                                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
-                                                                Cancelar</button>
+                                                            <button data-modal-hide="popup-modal{{ $usuario->id }}"
+                                                                type="submit"
+                                                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"><a
+                                                                    href="{{ route('usuario.index') }}">No,
+                                                                    Cancelar</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
