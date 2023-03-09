@@ -125,6 +125,14 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <nav>
+                            <ul class="inline-flex items-center -space-x-px">
+                              <li>
+                                <a href="{{$usuarios->links()}}">
+                                </a>
+                              
+                            </ul>
+                          </nav>
                     </div>
                 </div>
 

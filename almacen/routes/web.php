@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 
 
-
+//Rutas de producto
 Route::get('/producto', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('producto.index');
 Route::get('/producto/create', [ProductoController::class, 'create'])->middleware(['auth', 'verified'])->name('producto.create');
 Route::post('/producto/create', [ProductoController::class, 'store'])->middleware(['auth', 'verified'])->name('producto.store');
@@ -34,13 +34,14 @@ Route::get('/producto/edit/{id}', 'ProductoController@edit')->middleware('auth',
 Route::put('/producto/edit/{id}', 'ProductoController@update')->middleware('auth', 'verified')->name('productos.update');
 Route::delete('/producto/delete/{producto}', 'ProductoController@destroy')->middleware(['auth', 'verified'])->name('producto.destroy');
 
+//Rutas de usuario
 Route::get('/usuario', [UsuarioController::class, 'index'])->middleware(['auth', 'verified'])->name('usuario.index');
 Route::get('/usuario/show/{id}', [UsuarioController::class, 'show'])->middleware('auth', 'verified')->middleware('admin')->name('usuario.show');
 Route::get('/usuario/edit/{id}', 'UsuarioController@edit')->middleware('auth', 'verified')->middleware('admin')->name('usuario.edit');
 Route::put('/usuario/edit/{id}', 'UsuarioController@update')->middleware('auth', 'verified')->middleware('admin')->name('usuario.update');
 Route::delete('/usuario/delete/{usuario}', 'UsuarioController@destroy')->middleware('auth', 'verified')->middleware('admin')->name('usuario.destroy');
 
-
+//Rutas de compra
 Route::get('/compra', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('compra.index');
 Route::get('/compra/create', [CompraController::class, 'create'])->middleware(['auth', 'verified'])->name('compra.create');
 Route::post('/compra/create', [CompraController::class, 'store'])->middleware(['auth', 'verified'])->name('compra.store');
@@ -51,7 +52,7 @@ Route::delete('/compra/delete/{id}', [CompraController::class, 'destroy'])->midd
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -59,6 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//Ruta verificacion email
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');

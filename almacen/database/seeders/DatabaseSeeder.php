@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Compra;
+use App\Models\Producto;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -40,13 +41,13 @@ class DatabaseSeeder extends Seeder
                 ['id'=>1,
                 'nombre'=>'detergente',
                 'descripcion'=>'Detergente en polvo, para lavadoras de 8kg',
-                'foto'=>'../../public/storage/img_productos/detergente.jpg',
+                'foto'=>'detergente.jpg',
                 'fecha_caducidad'=>'2024-05-12',
                 'user_id'=>rand(1,2)],
                 ['id'=>2,
                 'nombre'=>'Champú de cebolla',
                 'descripcion'=>'Champú de cebolla para el crecimiento del cabello',
-                'foto'=>'../../public/storage/img_productos/champu.jpg',
+                'foto'=>'champu.jpg',
                 'fecha_caducidad'=>'2025-06-12',
                 'user_id'=>rand(1,2)]
             ]);
@@ -60,6 +61,6 @@ class DatabaseSeeder extends Seeder
                 'id_usuario'=>rand(1,2),
                 'precio'=>'30']
             ]);
-            Compra::factory(2);
+            Compra::factory(2)->create();
     }
 }

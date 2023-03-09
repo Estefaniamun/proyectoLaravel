@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Hash;
 class UsuarioController extends Controller
 {
     public function index(){
-       $users = User::all();
-        return view('usuarios.index')->with('usuarios', $users);
+        $usuarios = User::paginate(2);
+        return view('usuarios.index')->with('usuarios', $usuarios);
     }
 
     

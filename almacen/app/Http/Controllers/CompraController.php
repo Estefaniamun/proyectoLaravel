@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class CompraController extends Controller
 {
     public function index(){
-        $compras = Compra::all();
+        $compras = Compra::paginate(2);
         
         return view('compras.index')->with('compras', $compras);
     }

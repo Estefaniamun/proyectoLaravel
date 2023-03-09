@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Mis coches') }}
+            {{ __('Mis Productos') }}
         </h2>
     </x-slot>
 
@@ -119,6 +119,14 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <nav>
+                            <ul class="inline-flex items-center -space-x-px">
+                              <li>
+                                <a href="{{$productos->links()}}">
+                                </a>
+                              
+                            </ul>
+                          </nav>
                     </div>
                 </div>
 
